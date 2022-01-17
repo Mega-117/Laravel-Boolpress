@@ -1,4 +1,8 @@
-<template></template>
+<template>
+  <div>
+    <h1>{{ messaggio }} ciaooo</h1>
+  </div>
+</template>
 
 <script>
 export default {
