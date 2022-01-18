@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <h1>ciaooo</h1>
+  <div class="container">
+    <h1>pagina VUE rotta ANY</h1>
+    <a href="/login">login</a>
+    <br />
+    <a href="/register">registrati</a>
   </div>
 </template>
 

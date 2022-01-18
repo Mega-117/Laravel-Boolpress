@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -29,6 +27,7 @@ Route::namespace("Admin")
     ->group(function(){
     
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('posts', 'PostController');
 });
 
 Route::get("{any?}", function(){

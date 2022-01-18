@@ -101,6 +101,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   components: {}
@@ -598,7 +601,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("ciaooo")])])
+    return _c("div", { staticClass: "container" }, [
+      _c("h1", [_vm._v("pagina VUE rotta ANY")]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/login" } }, [_vm._v("login")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/register" } }, [_vm._v("registrati")]),
+    ])
   },
 ]
 render._withStripped = true
