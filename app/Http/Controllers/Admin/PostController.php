@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\PostCotroller;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,7 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        //$posts = Post::all();
+        $posts = Post::where("user_id", Auth::user()->id)->get();
 
         return view('admin.index', compact('posts'));
     }
@@ -39,8 +41,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
         $newPost = new Post;
+
+        $newPost->user_id = Auth::user()->id;
+
+
         $newPost->title = $data['title'];
         $newPost->text = $data['text'];
         $newPost->save();

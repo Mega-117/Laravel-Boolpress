@@ -14,11 +14,11 @@
         </div>
         <div>
             <label for="text" class="form-label">testo</label>
-            <textarea name="text" id="" cols="30" rows="10" class="form-control" value="{{ $post->text }}"></textarea>
+            <textarea name="text" id="" cols="30" rows="10" class="form-control">{{ $post->text }}</textarea>
             
         </div>
         <div>
-            <button type="submit" class="btn btn-primary my-3">crea</button>
+            <button type="submit" class="btn btn-primary my-3">Conferma Modifiche</button>
         </div>
     </form>
 </div>

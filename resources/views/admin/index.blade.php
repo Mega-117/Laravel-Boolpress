@@ -9,6 +9,8 @@
         @foreach ($posts as $post)
         <div>
             <h3> {{ $post['title']}} </h3>
+            <h6>Autore: {{ $post->user->name}} </h6>
+            
             <p> {{ $post['text']}} </p>
             <a href=" {{ route('admin.posts.show', $post->id)}} ">dettagli</a>
             <hr>
