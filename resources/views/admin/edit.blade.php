@@ -17,6 +17,15 @@
             <textarea name="text" id="" cols="30" rows="10" class="form-control">{{ $post->text }}</textarea>
             
         </div>
+        <div class="form-group">
+            <label class="form-label">Categoria</label>
+            <select name="category_id" class="form-control">
+              @foreach($categories as $category)
+              <option value="{{$category->id}}" @if($category->id ===
+                $post->category_id) selected @endif>{{$category->name}}</option>
+              @endforeach
+            </select>
+          </div>
         <div>
             <button type="submit" class="btn btn-primary my-3">Conferma Modifiche</button>
         </div>

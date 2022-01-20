@@ -9,6 +9,8 @@
 
     <Post v-for="post in postsList" :key="post.id" :post="post">
       <h3>{{ post.title }}</h3>
+      <h6>Categoria: {{ post.category_id }}</h6>
+      <h6>Autore: {{ post.user_id }}</h6>
       <p>{{ post.text }}</p>
     </Post>
   </div>

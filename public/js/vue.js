@@ -1927,6 +1927,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2480,6 +2482,10 @@ var render = function () {
       _vm._l(_vm.postsList, function (post) {
         return _c("Post", { key: post.id, attrs: { post: post } }, [
           _c("h3", [_vm._v(_vm._s(post.title))]),
+          _vm._v(" "),
+          _c("h6", [_vm._v("Categoria: " + _vm._s(post.category_id))]),
+          _vm._v(" "),
+          _c("h6", [_vm._v("Autore: " + _vm._s(post.user_id))]),
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(post.text))]),
         ])

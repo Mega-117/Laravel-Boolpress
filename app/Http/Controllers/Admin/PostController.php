@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\PostCotroller;
 use App\Post;
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -21,6 +22,7 @@ class PostController extends Controller
         $posts = Post::where("user_id", Auth::user()->id)->get();
 
         return view('admin.index', compact('posts'));
+        
     }
 
     /**
@@ -30,7 +32,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $categories = Category::all();
+
+        return view('admin.create',[
+            "categories"=> $categories,
+        ]);
+        
     }
 
     /**
@@ -75,7 +82,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.edit',[
+            'post' => $post,
+            'categories' => $categories,
+        ]);
     }
 
     /**
