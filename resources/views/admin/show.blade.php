@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="text-center">
+            {{post}}
             <h1>pagina show</h1>
         </div>
         <h2>{{ $post['title'] }}</h2>
