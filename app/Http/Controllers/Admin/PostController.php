@@ -35,7 +35,8 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-
+        /* dump($tags);
+        exit; */
         return view('admin.create',[
             "categories"=> $categories,
             "tags"=> $tags,
@@ -53,6 +54,9 @@ class PostController extends Controller
     {
 
         $data = $request->all();
+        /* dump($data);
+        exit;
+ */
         $newPost = new Post;
 
         $newPost->user_id = Auth::user()->id;
@@ -64,7 +68,7 @@ class PostController extends Controller
 
         $newPost->tags()->sync($data['tags']);
 
-        return redirect()->route('admin.posts.index', $newPost->id);
+        return redirect()->route('admin.posts.index');
 
     }
 

@@ -29,7 +29,7 @@
             <label class="form-label">Tags</label>
             
               @foreach($tags as $tag)
-              <input type="checkbox" id="tags" name="{{$tag->id}}" checked>
+              <input type="checkbox" id="tags" name="tags[]" value="{{$tag->id}}" checked>
               <label for="tags">{{ $tag->name}}</label>
               @endforeach
             
