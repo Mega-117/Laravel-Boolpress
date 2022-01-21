@@ -32,7 +32,12 @@
               <input type="checkbox" id="tags" name="tags[]" value="{{$tag->id}}" checked>
               <label for="tags">{{ $tag->name}}</label>
               @endforeach
-            
+
+              {{-- <select name="tag_id" class="form-control">
+                @foreach($tags as $tag)
+                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                @endforeach
+              </select> --}}
         </div>
         <div>
             <button type="submit" class="btn btn-primary my-3">crea</button>

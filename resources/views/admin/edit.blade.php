@@ -26,6 +26,9 @@
               @endforeach
             </select>
           </div>
+          {{-- <div>
+            <form action="route{{}}"></form>
+          </div> --}}
         <div>
             <button type="submit" class="btn btn-primary my-3">Conferma Modifiche</button>
         </div>
