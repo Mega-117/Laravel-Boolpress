@@ -8,6 +8,6 @@ use App\Category;
 class Category extends Model
 {
     public function post(){
-        return $this->belongTo('App\Post');
+        return $this->hasMany('App\Post');
     }
 }

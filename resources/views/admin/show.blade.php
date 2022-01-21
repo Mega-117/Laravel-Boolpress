@@ -15,7 +15,13 @@
                 <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id) }}">Modifica</a>
             </div>
             
-            
+            <div>
+                <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="Cancella Post">
+                </form>
+    
         </div>
         
         <br>

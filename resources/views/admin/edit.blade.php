@@ -26,9 +26,15 @@
               @endforeach
             </select>
           </div>
-          {{-- <div>
-            <form action="route{{}}"></form>
-          </div> --}}
+          <div>
+            
+          </div>
+          <div>
+            @foreach($tags as $tag)
+              <input type="checkbox" id="tags" name="tags[]" value="{{$tag->id}}" )>
+              <label for="tags">{{ $tag->name}}</label>
+              @endforeach
+          </div>
         <div>
             <button type="submit" class="btn btn-primary my-3">Conferma Modifiche</button>
         </div>

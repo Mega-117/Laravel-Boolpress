@@ -19,10 +19,14 @@ class PostController extends Controller
      */
     public function index()
     {
+        
         //$posts = Post::all();
         $posts = Post::where("user_id", Auth::user()->id)->get();
-
-        return view('admin.index', compact('posts'));
+        $categories = Category::all();
+        return view('admin.index', [
+            'posts' => $posts,
+            'categories' => $categories,
+        ]);
         
     }
 
@@ -80,7 +84,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('admin.show', compact('post'));
+        $tags = Tag::all();
+        
+        return view('admin.show', ['post' => $post, "tags"=> $tags,]);
     }
 
     /**
@@ -91,10 +97,14 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $tags = Tag::all();
         $categories = Category::all();
+        /* dump($tags);
+        exit; */
         return view('admin.edit',[
             'post' => $post,
             'categories' => $categories,
+            'tags' => $tags,
         ]);
     }
 
@@ -120,7 +130,8 @@ class PostController extends Controller
      */
     public function destroy( Post $post)
     {
+        
         $post->delete();
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index',);
     }
 }

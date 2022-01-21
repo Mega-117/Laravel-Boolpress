@@ -11,7 +11,7 @@
         <div>
             <h3> {{ $post['title']}} </h3>
             <h6>Autore: {{ $post->user->name}} </h6>
-            <h6>categoria: {{ $post->user->name }} </h6>
+            <h6>categoria: {{ $post->category->name }} </h6>
             
             <p> {{ $post['text']}} </p>
             <a href=" {{ route('admin.posts.show', $post->id)}} ">dettagli</a>
