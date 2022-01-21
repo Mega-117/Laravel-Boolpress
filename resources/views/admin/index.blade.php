@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        
         <h1>posts index</h1>
         <a href=" {{ route('admin.posts.create') }} ">crea nuovo post</a>
         <hr>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\PostCotroller;
 use App\Post;
+use App\Tag;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,9 +34,11 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
         return view('admin.create',[
             "categories"=> $categories,
+            "tags"=> $tags,
         ]);
         
     }
@@ -59,7 +62,9 @@ class PostController extends Controller
         $newPost->text = $data['text'];
         $newPost->save();
 
-        return redirect()->route('admin.posts.index');
+        $newPost->tags()->sync($data['tags']);
+
+        return redirect()->route('admin.posts.index', $newPost->id);
 
     }
 

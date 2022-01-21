@@ -24,7 +24,16 @@
               <option value="{{$category->id}}">{{$category->name}}</option>
               @endforeach
             </select>
-          </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Tags</label>
+            
+              @foreach($tags as $tag)
+              <input type="checkbox" id="tags" name="{{$tag->id}}" checked>
+              <label for="tags">{{ $tag->name}}</label>
+              @endforeach
+            
+        </div>
         <div>
             <button type="submit" class="btn btn-primary my-3">crea</button>
         </div>
