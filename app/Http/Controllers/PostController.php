@@ -8,8 +8,10 @@ use App\Post;
 class PostController extends Controller
 {
     public function index(){
-        $postsList  = Post::all();
+        $postsList = Post::with("category")
+      ->with("user:id,name")
+      ->with("tags")->paginate(3);
 
-        return $postsList ;
+        return response()->json($postsList);
     }
 }

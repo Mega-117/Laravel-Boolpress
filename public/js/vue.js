@@ -1929,6 +1929,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1939,15 +1971,25 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       messaggio: "Benvenuto",
-      postsList: []
+      postsList: [],
+      currentPage: 1,
+      lastPage: null
     };
   },
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    getData: function getData() {
+      var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/all-posts").then(function (resp) {
-      _this.postsList = resp.data;
-    });
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/all-posts").then(function (resp) {
+        _this.postsList = resp.data.data;
+        _this.currentPage = resp.data.current_page;
+        _this.lastPage = resp.data.last_page;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getData();
   }
 });
 
@@ -1962,6 +2004,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2465,36 +2509,111 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h1", { staticClass: "text-primary" }, [
-        _vm._v("pagina VUE rotta ANY " + _vm._s(_vm.messaggio)),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col" },
+        [
+          _c("h1", { staticClass: "text-primary" }, [
+            _vm._v("pagina VUE rotta ANY " + _vm._s(_vm.messaggio)),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/login" } }, [_vm._v("login")]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/register" } }, [_vm._v("registrati")]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _vm._l(_vm.postsList, function (post) {
+            return _c("Post", { key: post.id, attrs: { post: post } }, [
+              _c("h3", [_vm._v(_vm._s(post.title))]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Categoria: " + _vm._s(post.category_id))]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Autore: " + _vm._s(post.user_id))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(post.text))]),
+            ])
+          }),
+        ],
+        2
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("nav", [
+          _c(
+            "ul",
+            [
+              _c("li", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "page-link",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getData(_vm.currentPage - 1)
+                      },
+                    },
+                  },
+                  [_vm._v("\n              Indietro\n            ")]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.lastPage, function (page) {
+                return _c(
+                  "li",
+                  {
+                    key: page,
+                    staticClass: "page-item",
+                    class: { active: _vm.currentPage === page },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "page-link",
+                        on: {
+                          click: function ($event) {
+                            return _vm.getData(page)
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n              " + _vm._s(page) + "\n            "
+                        ),
+                      ]
+                    ),
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "page-link",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getData(_vm.currentPage + 1)
+                      },
+                    },
+                  },
+                  [_vm._v("\n              Avanti\n            ")]
+                ),
+              ]),
+            ],
+            2
+          ),
+        ]),
       ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "/login" } }, [_vm._v("login")]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "/register" } }, [_vm._v("registrati")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _vm._l(_vm.postsList, function (post) {
-        return _c("Post", { key: post.id, attrs: { post: post } }, [
-          _c("h3", [_vm._v(_vm._s(post.title))]),
-          _vm._v(" "),
-          _c("h6", [_vm._v("Categoria: " + _vm._s(post.category_id))]),
-          _vm._v(" "),
-          _c("h6", [_vm._v("Autore: " + _vm._s(post.user_id))]),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(post.text))]),
-        ])
-      }),
-    ],
-    2
-  )
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2520,6 +2639,10 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
+    _vm._v(" "),
+    _c("h6", [_vm._v("Categoria: " + _vm._s(_vm.post.category.name))]),
+    _vm._v(" "),
+    _c("h6", [_vm._v("Autore: " + _vm._s(_vm.post.user.name))]),
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.post.text))]),
   ])
