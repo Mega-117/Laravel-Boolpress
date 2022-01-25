@@ -1961,6 +1961,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1981,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/all-posts").then(function (resp) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/all-posts?page=" + page).then(function (resp) {
         _this.postsList = resp.data.data;
         _this.currentPage = resp.data.current_page;
         _this.lastPage = resp.data.last_page;
@@ -2550,18 +2558,20 @@ var render = function () {
             "ul",
             [
               _c("li", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getData(_vm.currentPage - 1)
+                _vm.currentPage != 1
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "page-link",
+                        on: {
+                          click: function ($event) {
+                            return _vm.getData(_vm.currentPage - 1)
+                          },
+                        },
                       },
-                    },
-                  },
-                  [_vm._v("\n              Indietro\n            ")]
-                ),
+                      [_vm._v("\n              Indietro\n            ")]
+                    )
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _vm._l(_vm.lastPage, function (page) {
@@ -2594,18 +2604,20 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("li", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getData(_vm.currentPage + 1)
+                _vm.currentPage != _vm.lastPage
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "page-link",
+                        on: {
+                          click: function ($event) {
+                            return _vm.getData(_vm.currentPage + 1)
+                          },
+                        },
                       },
-                    },
-                  },
-                  [_vm._v("\n              Avanti\n            ")]
-                ),
+                      [_vm._v("\n              Avanti\n            ")]
+                    )
+                  : _vm._e(),
               ]),
             ],
             2

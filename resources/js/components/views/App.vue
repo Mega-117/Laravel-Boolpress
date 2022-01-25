@@ -22,7 +22,11 @@
         <nav>
           <ul>
             <li>
-              <button class="page-link" @click="getData(currentPage - 1)">
+              <button
+                v-if="currentPage != 1"
+                class="page-link"
+                @click="getData(currentPage - 1)"
+              >
                 Indietro
               </button>
             </li>
@@ -37,7 +41,11 @@
               </button>
             </li>
             <li>
-              <button class="page-link" @click="getData(currentPage + 1)">
+              <button
+                v-if="currentPage != lastPage"
+                class="page-link"
+                @click="getData(currentPage + 1)"
+              >
                 Avanti
               </button>
             </li>
@@ -65,7 +73,7 @@ export default {
   },
   methods: {
     getData(page = 1) {
-      axios.get("/api/all-posts").then((resp) => {
+      axios.get("/api/all-posts?page=" + page).then((resp) => {
         this.postsList = resp.data.data;
         this.currentPage = resp.data.current_page;
         this.lastPage = resp.data.last_page;

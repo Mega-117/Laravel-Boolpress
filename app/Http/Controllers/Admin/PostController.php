@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         
         //$posts = Post::all();
-        $posts = Post::where("user_id", Auth::user()->id)->paginate(3);
+        $posts = Post::where("user_id", Auth::user()->id)->paginate(2);
         //$posts = Post::paginate(3);
         $categories = Category::all();
         return view('admin.index', [
