@@ -7,6 +7,7 @@
         <a href=" {{ route('admin.posts.create') }} ">crea nuovo post</a>
         <hr>
         <h2 class="text-center">Lista post</h2>
+        @dump($posts)
         @foreach ($posts as $post)
         <div>
             <h3> {{ $post['title']}} </h3>

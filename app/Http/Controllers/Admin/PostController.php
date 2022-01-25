@@ -68,6 +68,7 @@ class PostController extends Controller
 
         $newPost->title = $data['title'];
         $newPost->text = $data['text'];
+        $newPost->category_id = $data['category_id'];
         $newPost->save();
 
         $newPost->tags()->sync($data['tags']);
@@ -130,7 +131,7 @@ class PostController extends Controller
      */
     public function destroy( Post $post)
     {
-        
+        $post->tags()->detach();
         $post->delete();
         return redirect()->route('admin.posts.index',);
     }

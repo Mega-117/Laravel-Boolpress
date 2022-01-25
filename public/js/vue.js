@@ -2469,7 +2469,9 @@ var render = function () {
     "div",
     { staticClass: "container" },
     [
-      _c("h1", [_vm._v("pagina VUE rotta ANY " + _vm._s(_vm.messaggio))]),
+      _c("h1", { staticClass: "text-primary" }, [
+        _vm._v("pagina VUE rotta ANY " + _vm._s(_vm.messaggio)),
+      ]),
       _vm._v(" "),
       _c("a", { attrs: { href: "/login" } }, [_vm._v("login")]),
       _vm._v(" "),

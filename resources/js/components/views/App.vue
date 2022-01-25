@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>pagina VUE rotta ANY {{ messaggio }}</h1>
+    <h1 class="text-primary">pagina VUE rotta ANY {{ messaggio }}</h1>
     <a href="/login">login</a>
     <br />
     <a href="/register">registrati</a>
