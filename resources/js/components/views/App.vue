@@ -3,56 +3,22 @@
     <div class="row">
       <div class="col">
         <h1 class="text-primary">pagina VUE rotta ANY {{ messaggio }}</h1>
-        <a href="/login">login</a>
-        <br />
-        <a href="/register">registrati</a>
-
-        <hr />
-
-        <Post v-for="post in postsList" :key="post.id" :post="post">
-          <h3>{{ post.title }}</h3>
-          <h6>Categoria: {{ post.category_id }}</h6>
-          <h6>Autore: {{ post.user_id }}</h6>
-          <p>{{ post.text }}</p>
-        </Post>
+        <div>
+          <a href="/login">login</a>
+          <br />
+          <a href="/register">registrati</a>
+        </div>
+        <div>
+          <a href="/">home</a>
+          <br />
+          <a href="/about">about</a>
+          <br />
+          <a href="/contact">contact</a>
+        </div>
       </div>
+      <hr />
     </div>
-    <div class="row">
-      <div class="col">
-        <nav>
-          <ul>
-            <li>
-              <button
-                v-if="currentPage != 1"
-                class="page-link"
-                @click="getData(currentPage - 1)"
-              >
-                Indietro
-              </button>
-            </li>
-            <li
-              v-for="page of lastPage"
-              :key="page"
-              class="page-item"
-              :class="{ active: currentPage === page }"
-            >
-              <button class="page-link" @click="getData(page)">
-                {{ page }}
-              </button>
-            </li>
-            <li>
-              <button
-                v-if="currentPage != lastPage"
-                class="page-link"
-                @click="getData(currentPage + 1)"
-              >
-                Avanti
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
