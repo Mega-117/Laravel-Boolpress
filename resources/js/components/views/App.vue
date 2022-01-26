@@ -2,19 +2,43 @@
   <div class="container">
     <div class="row">
       <div class="col">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
+          <div class="container-fluid px-0">
+            <!-- <a class="navbar-brand" href="/">Logo</a> -->
+
+            <div
+              class="collapse navbar-collapse justify-content-between"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">about</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">contact</a>
+                </li>
+              </ul>
+              <div class="flex">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
         <h1 class="text-primary">pagina VUE rotta ANY {{ messaggio }}</h1>
-        <div>
-          <a href="/login">login</a>
-          <br />
-          <a href="/register">registrati</a>
-        </div>
-        <div>
-          <a href="/">home</a>
-          <br />
-          <a href="/about">about</a>
-          <br />
-          <a href="/contact">contact</a>
-        </div>
+        <br />
+        <h2>Lista post:</h2>
       </div>
       <hr />
     </div>

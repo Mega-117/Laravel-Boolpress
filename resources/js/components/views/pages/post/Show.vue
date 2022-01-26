@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <h1>show</h1>
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.text }}</p>
+  <div class="card">
+    <div class="card-body">
+      <h1>show</h1>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.text }}</p>
+    </div>
   </div>
 </template>
 

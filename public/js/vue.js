@@ -1935,6 +1935,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2123,6 +2147,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2156,6 +2182,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2671,13 +2699,15 @@ var render = function () {
     [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col" }, [
+          _vm._m(0),
+          _vm._v(" "),
           _c("h1", { staticClass: "text-primary" }, [
             _vm._v("pagina VUE rotta ANY " + _vm._s(_vm.messaggio)),
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("br"),
           _vm._v(" "),
-          _vm._m(1),
+          _c("h2", [_vm._v("Lista post:")]),
         ]),
         _vm._v(" "),
         _c("hr"),
@@ -2693,29 +2723,71 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("a", { attrs: { href: "/login" } }, [_vm._v("login")]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "/register" } }, [_vm._v("registrati")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("a", { attrs: { href: "/" } }, [_vm._v("home")]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "/about" } }, [_vm._v("about")]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "/contact" } }, [_vm._v("contact")]),
-    ])
+    return _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-lg navbar-light bg-light px-0" },
+      [
+        _c("div", { staticClass: "container-fluid px-0" }, [
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse justify-content-between",
+              attrs: { id: "navbarSupportedContent" },
+            },
+            [
+              _c("ul", { staticClass: "navbar-nav me-auto mb-2 mb-lg-0" }, [
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link active",
+                      attrs: { "aria-current": "page", href: "/" },
+                    },
+                    [_vm._v("Home")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: "/about" } },
+                    [_vm._v("about")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: "/contact" } },
+                    [_vm._v("contact")]
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex" }, [
+                _c("ul", { staticClass: "navbar-nav" }, [
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      { staticClass: "nav-link", attrs: { href: "/login" } },
+                      [_vm._v("Login")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      { staticClass: "nav-link", attrs: { href: "/register" } },
+                      [_vm._v("Register")]
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -2920,12 +2992,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("show")]),
-    _vm._v(" "),
-    _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.post.text))]),
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("h1", [_vm._v("show")]),
+      _vm._v(" "),
+      _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.post.text))]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -2950,27 +3024,30 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
-      _vm._v(" "),
-      _c("h6", [_vm._v("Categoria: " + _vm._s(_vm.post.category.name))]),
-      _vm._v(" "),
-      _c("h6", [_vm._v("Autore: " + _vm._s(_vm.post.user.name))]),
-      _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.post.text))]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "router-link",
-        { attrs: { to: { name: "post", params: { id: _vm.post.id } } } },
-        [_vm._v("dettagli")]
-      ),
-    ],
-    1
-  )
+  return _c("div", { staticClass: "card mb-2" }, [
+    _c(
+      "div",
+      { staticClass: "card-body" },
+      [
+        _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
+        _vm._v(" "),
+        _c("h6", [_vm._v("Categoria: " + _vm._s(_vm.post.category.name))]),
+        _vm._v(" "),
+        _c("h6", [_vm._v("Autore: " + _vm._s(_vm.post.user.name))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.post.text))]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { attrs: { to: { name: "post", params: { id: _vm.post.id } } } },
+          [_vm._v("Dettagli")]
+        ),
+      ],
+      1
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
