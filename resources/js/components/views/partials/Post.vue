@@ -5,6 +5,10 @@
     <h6>Autore: {{ post.user.name }}</h6>
 
     <p>{{ post.text }}</p>
+    <br />
+    <router-link :to="{ name: 'post', params: { id: post.id } }"
+      >dettagli</router-link
+    >
   </div>
 </template>
 

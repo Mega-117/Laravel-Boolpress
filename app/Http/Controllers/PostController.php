@@ -16,5 +16,9 @@ class PostController extends Controller
 
         return response()->json($postsList);
     }
+    public function show($id){
+      $post = Post::where("id", $id)->first();
+      return response()->json($post);
+    }
 }
  
