@@ -1959,6 +1959,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2182,8 +2187,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2699,7 +2702,81 @@ var render = function () {
     [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col" }, [
-          _vm._m(0),
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-expand-lg navbar-light bg-light px-0",
+            },
+            [
+              _c("div", { staticClass: "container-fluid px-0" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "collapse navbar-collapse justify-content-between",
+                    attrs: { id: "navbarSupportedContent" },
+                  },
+                  [
+                    _c(
+                      "ul",
+                      { staticClass: "navbar-nav me-auto mb-2 mb-lg-0" },
+                      [
+                        _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link active",
+                                attrs: { "aria-current": "page", to: "/" },
+                              },
+                              [_vm._v("Home")]
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: { to: "/about" },
+                              },
+                              [_vm._v("about")]
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: { to: "/contact" },
+                              },
+                              [_vm._v("contact")]
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(0),
+                  ]
+                ),
+              ]),
+            ]
+          ),
           _vm._v(" "),
           _c("h1", { staticClass: "text-primary" }, [
             _vm._v("pagina VUE rotta ANY " + _vm._s(_vm.messaggio)),
@@ -2723,71 +2800,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-light bg-light px-0" },
-      [
-        _c("div", { staticClass: "container-fluid px-0" }, [
-          _c(
-            "div",
-            {
-              staticClass: "collapse navbar-collapse justify-content-between",
-              attrs: { id: "navbarSupportedContent" },
-            },
-            [
-              _c("ul", { staticClass: "navbar-nav me-auto mb-2 mb-lg-0" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link active",
-                      attrs: { "aria-current": "page", href: "/" },
-                    },
-                    [_vm._v("Home")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    { staticClass: "nav-link", attrs: { href: "/about" } },
-                    [_vm._v("about")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    { staticClass: "nav-link", attrs: { href: "/contact" } },
-                    [_vm._v("contact")]
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex" }, [
-                _c("ul", { staticClass: "navbar-nav" }, [
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      { staticClass: "nav-link", attrs: { href: "/login" } },
-                      [_vm._v("Login")]
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      { staticClass: "nav-link", attrs: { href: "/register" } },
-                      [_vm._v("Register")]
-                    ),
-                  ]),
-                ]),
-              ]),
-            ]
-          ),
+    return _c("div", { staticClass: "flex" }, [
+      _c("ul", { staticClass: "navbar-nav" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c("a", { staticClass: "nav-link", attrs: { href: "/login" } }, [
+            _vm._v("Login"),
+          ]),
         ]),
-      ]
-    )
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c("a", { staticClass: "nav-link", attrs: { href: "/register" } }, [
+            _vm._v("Register"),
+          ]),
+        ]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -3039,11 +3066,9 @@ var render = function () {
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
-        _c(
-          "router-link",
-          { attrs: { to: { name: "post", params: { id: _vm.post.id } } } },
-          [_vm._v("Dettagli")]
-        ),
+        _c("router-link", { attrs: { to: "/post/" + _vm.post.id } }, [
+          _vm._v("Dettagli"),
+        ]),
       ],
       1
     ),

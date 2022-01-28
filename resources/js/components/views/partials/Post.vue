@@ -7,9 +7,7 @@
 
       <p>{{ post.text }}</p>
       <br />
-      <router-link :to="{ name: 'post', params: { id: post.id } }"
-        >Dettagli</router-link
-      >
+      <router-link :to="'/post/' + post.id">Dettagli</router-link>
     </div>
   </div>
 </template>
