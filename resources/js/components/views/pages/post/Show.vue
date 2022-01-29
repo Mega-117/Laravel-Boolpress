@@ -1,8 +1,12 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h1>show</h1>
-      <h3>{{ post.title }}</h3>
+      <h2>{{ post.title }}</h2>
+      <h6>Categoria: {{ post.category.name }}</h6>
+      <h6>Autore: {{ post.user.name }}</h6>
+      <h6>Pubblicazione: {{ post.created_at }}</h6>
+      <h6>tag: {{ post.tag }}</h6>
+
       <p>{{ post.text }}</p>
     </div>
   </div>

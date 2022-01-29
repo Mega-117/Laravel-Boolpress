@@ -30,10 +30,19 @@
             
           </div>
           <div>
+            {{-- @dump($post->tags) --}}
             @foreach($tags as $tag)
-              <input type="checkbox" id="tags" name="tags[]" value="{{$tag->id}}" )>
-              <label for="tags">{{ $tag->name}}</label>
+            <label for="tags">{{ $tag->name}}</label>
+              <input type="checkbox" id="tags" name="tags[]" value="{{$tag->id}}" @if ($post->tags->contains($tag)) checked
+                  
+              @endif>
               @endforeach
+              {{-- <label for="">Tag</label>
+              <select name="tags[]" class="form-control" multiple>
+                @foreach ($tags as $tag)   
+                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                @endforeach
+              </select> --}}
           </div>
         <div>
             <button type="submit" class="btn btn-primary my-3">Conferma Modifiche</button>

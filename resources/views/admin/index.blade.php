@@ -7,12 +7,18 @@
         <a href=" {{ route('admin.posts.create') }} ">crea nuovo post</a>
         <hr>
         <h2 class="text-center">Lista post</h2>
-        @dump($posts)
+        {{-- @dump($posts) --}}
         @foreach ($posts as $post)
         <div>
             <h3> {{ $post['title']}} </h3>
             <h6>Autore: {{ $post->user->name}} </h6>
             <h6>categoria: {{ $post->category->name }} </h6>
+            <ul>
+                @foreach ($post->tags as $tag)
+                
+                <li>{{ $tag->name }}</li>            
+                @endforeach
+            </ul>
             
             <p> {{ $post['text']}} </p>
             <a href=" {{ route('admin.posts.show', $post->id)}} ">dettagli</a>

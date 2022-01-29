@@ -1,13 +1,18 @@
 <template>
   <div>
     <div class="row">
-      <div class="col">
-        <Post v-for="post in postsList" :key="post.id" :post="post">
-          <h3>{{ post.title }}</h3>
-          <h6>Categoria: {{ post.category_id }}</h6>
-          <h6>Autore: {{ post.user_id }}</h6>
-          <p>{{ post.text }}</p>
-        </Post>
+      <div class="col-9">
+        <Post v-for="post in postsList" :key="post.id" :post="post"> </Post>
+      </div>
+      <div class="col-3">
+        <h5>Categorie</h5>
+        <ul>
+          <li v-for="category in categories" :key="category.id">
+            <router-link :to="'/category/' + category.id">{{
+              category.name
+            }}</router-link>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="row">
@@ -60,6 +65,7 @@ export default {
     return {
       messaggio: "Benvenuto",
       postsList: [],
+      categories: [],
       currentPage: 1,
       lastPage: null,
     };
@@ -72,9 +78,15 @@ export default {
         this.lastPage = resp.data.last_page;
       });
     },
+    getCategories() {
+      axios.get("/api/categories").then((resp) => {
+        this.categories = resp.data;
+      });
+    },
   },
   mounted() {
     this.getData();
+    this.getCategories();
   },
 };
 </script>

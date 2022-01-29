@@ -7,6 +7,14 @@
             <h1>pagina show</h1>
         </div>
         <h2>{{ $post['title'] }}</h2>
+        <h6>Categoria: {{ $post->category->name }}</h6>
+        <h6>Tag:</h6>
+        <ul>
+            @foreach ($post->tags as $tag)
+            
+            <li>{{ $tag->name }}</li>            
+            @endforeach
+        </ul>
         <p>{{ $post['text'] }}</p>
         <br>
         

@@ -17,7 +17,8 @@ class PostController extends Controller
         return response()->json($postsList);
     }
     public function show($id){
-      $post = Post::where("id", $id)->first();
+      $post = Post::where("id", $id)->with("category")->with("user:id,name")
+      ->with("tags")->first();
       return response()->json($post);
     }
 }

@@ -41,7 +41,7 @@
             </div>
           </div>
         </nav>
-        <h1 class="text-primary">pagina VUE rotta ANY {{ messaggio }}</h1>
+        <h1 class="text-primary">pagina VUE rotta ANY</h1>
         <br />
         <h2>Lista post:</h2>
       </div>
@@ -77,6 +77,7 @@ export default {
   },
   mounted() {
     this.getData();
+    console.log(this.$route);
   },
 };
 </script>
