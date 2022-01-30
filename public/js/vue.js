@@ -2105,6 +2105,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2118,7 +2128,8 @@ __webpack_require__.r(__webpack_exports__);
       postsList: [],
       categories: [],
       currentPage: 1,
-      lastPage: null
+      lastPage: null,
+      loading: true
     };
   },
   methods: {
@@ -2126,10 +2137,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/all-posts?page=" + page).then(function (resp) {
         _this.postsList = resp.data.data;
         _this.currentPage = resp.data.current_page;
         _this.lastPage = resp.data.last_page;
+        _this.loading = false;
       });
     },
     getCategories: function getCategories() {
@@ -2980,10 +2993,18 @@ var render = function () {
       _c(
         "div",
         { staticClass: "col-9" },
-        _vm._l(_vm.postsList, function (post) {
-          return _c("Post", { key: post.id, attrs: { post: post } })
-        }),
-        1
+        [
+          _vm.loading
+            ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+                _vm._m(0),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.postsList, function (post) {
+            return _c("Post", { key: post.id, attrs: { post: post } })
+          }),
+        ],
+        2
       ),
       _vm._v(" "),
       _c("div", { staticClass: "col-3" }, [
@@ -3087,7 +3108,24 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-dark", attrs: { type: "button", disabled: "" } },
+      [
+        _c("span", {
+          staticClass: "spinner-border spinner-border-sm",
+          attrs: { role: "status", "aria-hidden": "true" },
+        }),
+        _vm._v("\n          Loading...\n        "),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 

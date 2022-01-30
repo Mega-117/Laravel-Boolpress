@@ -13,7 +13,8 @@ class PostController extends Controller
         $postsList = Post::with("category")
       ->with("user:id,name")
       ->with("tags")->paginate(3);
-
+      
+        sleep(3);
         return response()->json($postsList);
     }
     public function show($id){

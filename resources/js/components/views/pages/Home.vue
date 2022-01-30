@@ -2,6 +2,16 @@
   <div>
     <div class="row">
       <div class="col-9">
+        <div class="d-flex justify-content-center" v-if="loading">
+          <button class="btn btn-dark" type="button" disabled>
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </button>
+        </div>
         <Post v-for="post in postsList" :key="post.id" :post="post"> </Post>
       </div>
       <div class="col-3">
@@ -68,14 +78,17 @@ export default {
       categories: [],
       currentPage: 1,
       lastPage: null,
+      loading: true,
     };
   },
   methods: {
     getData(page = 1) {
+      this.loading = true;
       axios.get("/api/all-posts?page=" + page).then((resp) => {
         this.postsList = resp.data.data;
         this.currentPage = resp.data.current_page;
         this.lastPage = resp.data.last_page;
+        this.loading = false;
       });
     },
     getCategories() {
