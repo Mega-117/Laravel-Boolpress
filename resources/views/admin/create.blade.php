@@ -4,12 +4,16 @@
 <div class="container">
 
     <h1>Pagina create</h1>
-    <form action=" {{ route('admin.posts.store') }} " method="post">
+    <form action=" {{ route('admin.posts.store') }} " method="post" enctype="multipart/form-data">
         @csrf
         
         <div>
             <label for="title" class="form-label">titolo</label>
             <input type="text" name="title" class="form-control">
+        </div>
+        <div>
+            <label for="cover_img" class="form-label">Cover img</label>
+            <input type="file" name="cover_img" id="cover_img" class="form-control" value="">
         </div>
         <div>
             <label for="text" class="form-label">testo</label>

@@ -4,7 +4,7 @@
 <div class="container">
 
     <h1>Pagina modifica post</h1>
-    <form action=" {{ route('admin.posts.update', $post->id)}} " method="post">
+    <form action=" {{ route('admin.posts.update', $post->id)}} " method="post" enctype="multipart/form-data" >
         @csrf
         @method('put')
 
@@ -15,7 +15,6 @@
         <div>
             <label for="cover_img" class="form-label">Cover img</label>
             <input type="file" name="cover_img" id="cover_img" class="form-control" value="">
-            
         </div>
         <div>
             <label for="text" class="form-label">testo</label>

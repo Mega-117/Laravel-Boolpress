@@ -16,6 +16,8 @@
             @endforeach
         </ul>
         <p>{{ $post['text'] }}</p>
+        <p>{{ $post['cover_img'] }}</p>
+        <img src=" {{ asset('storage/' . $post->cover_img) }} " alt="img">
         <br>
         
         <div class="d-flex me-3">

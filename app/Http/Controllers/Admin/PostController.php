@@ -9,6 +9,7 @@ use App\Post;
 use App\Tag;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -70,6 +71,8 @@ class PostController extends Controller
         $newPost->title = $data['title'];
         $newPost->text = $data['text'];
         $newPost->category_id = $data['category_id'];
+       
+        $newPost->cover_img = Storage::put('upload', $data['cover_img']);
         $newPost->save();
 
         $newPost->tags()->sync($data['tags']);
@@ -120,11 +123,22 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $data = $request->all();
-        /* dump($data["tags"]);
-        exit();  */  
-        $data = $request->all();
+
+        $oldCoverImg = $post['cover_img'];
+        //dd($oldCoverImg);
+        if($oldCoverImg){
+            Storage::delete($oldCoverImg);
+          }
+    
+        $post->cover_img = Storage::put('upload', $data['cover_img']);
+        
+        
+        //dump($data['cover_img']);
+        //exit();  
+        
         $post -> update($data);
         $post->tags()->sync($data["tags"]);
+
         return redirect()->route('admin.posts.index');
     }
 
