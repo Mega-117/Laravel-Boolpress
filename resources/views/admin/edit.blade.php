@@ -13,8 +13,13 @@
             <input type="text" name="title" class="form-control" value="{{ $post->title }}">
         </div>
         <div>
+            <label for="cover_img" class="form-label">Cover img</label>
+            <input type="file" name="cover_img" id="cover_img" class="form-control" value="">
+            
+        </div>
+        <div>
             <label for="text" class="form-label">testo</label>
-            <textarea name="text" id="" cols="30" rows="10" class="form-control">{{ $post->text }}</textarea>
+            <textarea name="text" id="text" cols="30" rows="10" class="form-control">{{ $post->text }}</textarea>
             
         </div>
         <div class="form-group">
