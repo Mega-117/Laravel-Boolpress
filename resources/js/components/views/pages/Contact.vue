@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -59,7 +61,9 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.formSubmit = true;
+      axios.post("/api/contacts", this.form).then((resp) => {
+        this.formSubmit = true;
+      });
     },
   },
 };

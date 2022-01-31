@@ -6,6 +6,7 @@
       <h6>Autore: {{ post.user.name }}</h6>
       <h6>Pubblicazione: {{ post.created_at }}</h6>
       <h6>tag: {{ post.tag }}</h6>
+      <!-- <img :src="'/storage/' + post.cover_img" alt="" /> -->
 
       <p>{{ post.text }}</p>
     </div>
