@@ -28,6 +28,6 @@ class SendContactMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.sendContactMail');
+        return $this->view("mail.sendContactMail");
     }
 }
