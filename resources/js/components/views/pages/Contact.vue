@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      axios.post("/api/contacts", this.form).then((resp) => {
+      axios.post("/api/contatti", this.form).then((resp) => {
         this.formSubmit = true;
       });
     },

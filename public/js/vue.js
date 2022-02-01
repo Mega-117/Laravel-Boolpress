@@ -2092,7 +2092,7 @@ __webpack_require__.r(__webpack_exports__);
     onSubmit: function onSubmit() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/contacts", this.form).then(function (resp) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/contatti", this.form).then(function (resp) {
         _this.formSubmit = true;
       });
     }
